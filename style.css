@@ -20,7 +20,12 @@
   /* COLORS */
   --BGCOLOR-FADE: #0acdff;
   --BGCOLOR: #dcfffb;
-  --BGIMAGE: linear-gradient(to right top, var(--BGCOLOR), var(--BGCOLOR-FADE));
+  --BGIMAGE: linear-gradient(
+    to right top,
+    var(--BGCOLOR),
+    rgb(253, 243, 225),
+    var(--BGCOLOR-FADE)
+  );
   --BODY-BGCOLOR: #fff;
   --BORDER-COLOR: #333;
   --BUTTON-COLOR: white;
@@ -72,6 +77,13 @@ html {
   font-family: var(--FF);
   background-color: var(--BGCOLOR);
   background-image: var(--BGIMAGE);
+  /* background: linear-gradient(
+      217deg,
+      rgb(220, 255, 251, 0.8),
+      rgb(10, 205, 255, 0) 70.71%
+    ),
+    linear-gradient(127deg, rgba(0, 255, 0, 0.8), rgba(0, 255, 0, 0) 70.71%),
+    linear-gradient(336deg, rgba(0, 0, 255, 0.8), rgba(0, 0, 255, 0) 70.71%); */
 
   /* height: 100%; */
   /* margin: 0; */
