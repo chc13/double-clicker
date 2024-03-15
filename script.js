@@ -37,9 +37,9 @@ let numRightClicks = 0;
 document.addEventListener("contextmenu", handleRightMouseClicks);
 
 function handleRightMouseClicks(event) {
-  event.preventDefault(); //prevents context menu from showing up
+  //event.preventDefault(); //prevents context menu from showing up
   console.log("right click detected!");
-  if (numClicks > 0) {
+  if (numRightClicks > 0) {
     checkDoubleClick();
   }
   numRightClicks++;
