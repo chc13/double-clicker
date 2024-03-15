@@ -4,13 +4,16 @@ const numRightClicksText = document.getElementById("numRightClicks");
 const msPassedText = document.getElementById("msPassed");
 const numDoubleClicksText = document.getElementById("numDoubleClicks");
 
+const leftDoubleClicksText = document.getElementById("leftDoubleClicks");
+const rightDoubleClicksText = document.getElementById("rightDoubleClicks");
+
 let numClicks = 0;
 document.addEventListener("click", handleMouseClick);
 
 function handleMouseClick(event) {
   /* console.log(numClicks); */
   if (numClicks > 0) {
-    checkDoubleClick();
+    checkDoubleClick(0);
   }
   numClicks++;
   updateNumClicksText();
@@ -37,10 +40,10 @@ let numRightClicks = 0;
 document.addEventListener("contextmenu", handleRightMouseClicks);
 
 function handleRightMouseClicks(event) {
-  //event.preventDefault(); //prevents context menu from showing up
-  console.log("right click detected!");
+  event.preventDefault(); //prevents context menu from showing up
+  //console.log("right click detected!");
   if (numRightClicks > 0) {
-    checkDoubleClick();
+    checkDoubleClick(1);
   }
   numRightClicks++;
   numRightClicksText.textContent = numRightClicks.toString().padStart(4, "0");
@@ -67,11 +70,26 @@ function restartTimer() {
 let numDoubleClicks = 0;
 const doubleClickWindow = 8;
 
-function checkDoubleClick() {
+let leftDoubleClicks = 0;
+let rightDoubleClicks = 0;
+
+function checkDoubleClick(mousebutton) {
   if (msCount < doubleClickWindow) {
     numDoubleClicks++;
     numDoubleClicksText.textContent = numDoubleClicks
       .toString()
       .padStart(4, "0");
+
+    if (mousebutton == 0) {
+      leftDoubleClicks++;
+      leftDoubleClicksText.textContent = leftDoubleClicks
+        .toString()
+        .padStart(4, "0");
+    } else if (mousebutton == 1) {
+      rightDoubleClicks++;
+      rightDoubleClicksText.textContent = rightDoubleClicks
+        .toString()
+        .padStart(4, "0");
+    }
   }
 }
