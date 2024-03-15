@@ -8,7 +8,11 @@ const leftDoubleClicksText = document.getElementById("leftDoubleClicks");
 const rightDoubleClicksText = document.getElementById("rightDoubleClicks");
 const msPassedRightText = document.getElementById("msPassedRight");
 
+//left clicks
 let numClicks = 0;
+let timeInterval;
+let msCount = 0;
+let leftDoubleClicks = 0;
 document.addEventListener("click", handleMouseClick);
 
 function handleMouseClick(event) {
@@ -22,11 +26,28 @@ function handleMouseClick(event) {
   restartTimer();
 }
 
+function restartTimer() {
+  clearInterval(timeInterval);
+  msCount = 0;
+  msPassedText.textContent = msCount.toString().padStart(4, "0");
+
+  //set time interval to 1 ms
+  timeInterval = setInterval(() => {
+    msCount++;
+    msPassedText.textContent = msCount.toString().padStart(4, "0");
+  }, 1);
+  //NOTE: setInterval is INACCURATE, find another solution
+}
+
 function updateNumClicksText() {
   numClicksText.textContent = numClicks.toString().padStart(4, "0");
 }
 
+//right clicks
 let numRightClicks = 0;
+let timeIntervalRight;
+let msCountRight = 0;
+let rightDoubleClicks = 0;
 /* window.oncontextmenu = (e) => {
   e.preventDefault();
   console.log("right clicked");
@@ -42,7 +63,6 @@ document.addEventListener("contextmenu", handleRightMouseClicks);
 
 function handleRightMouseClicks(event) {
   event.preventDefault(); //prevents context menu from showing up
-  //console.log("right click detected!");
   if (numRightClicks > 0) {
     checkDoubleClick(1);
   }
@@ -50,24 +70,6 @@ function handleRightMouseClicks(event) {
   numRightClicksText.textContent = numRightClicks.toString().padStart(4, "0");
 
   restartTimerRight();
-}
-
-let timeInterval;
-let timeIntervalRight;
-let msCount = 0;
-let msCountRight = 0;
-
-function restartTimer() {
-  clearInterval(timeInterval);
-  msCount = 0;
-  msPassedText.textContent = msCount.toString().padStart(4, "0");
-
-  //set time interval to 1 ms
-  timeInterval = setInterval(() => {
-    msCount++;
-    msPassedText.textContent = msCount.toString().padStart(4, "0");
-  }, 1);
-  //NOTE: setInterval is INACCURATE, find another solution
 }
 
 function restartTimerRight() {
@@ -80,14 +82,13 @@ function restartTimerRight() {
     msCountRight++;
     msPassedRightText.textContent = msCountRight.toString().padStart(4, "0");
   }, 1);
+  //NOTE: setInterval is INACCURATE, find another solution
 }
 
-let numDoubleClicks = 0;
-const doubleClickWindow = 8;
+let numDoubleClicks = 0; //the total number of double clicks between right and left clicks
+const doubleClickWindow = 8; //defines the time window for two consecutive clicks to be considered a double click
 
-let leftDoubleClicks = 0;
-let rightDoubleClicks = 0;
-
+//checks for double clicks, mousebutton param determines whether it checks for left(0) or right(1) clicks
 function checkDoubleClick(mousebutton) {
   if (mousebutton == 0) {
     if (msCount < doubleClickWindow) {
