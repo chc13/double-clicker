@@ -14,6 +14,7 @@ let timeInterval;
 let msCount = 0;
 let leftDoubleClicks = 0;
 document.addEventListener("click", handleMouseClick);
+let lastTime = 0; //stores the last date in ms for a click
 
 function handleMouseClick(event) {
   /* console.log(numClicks); */
@@ -24,6 +25,7 @@ function handleMouseClick(event) {
   updateNumClicksText();
 
   restartTimer();
+  lastTime = Date.now();
 }
 
 function restartTimer() {
@@ -31,12 +33,14 @@ function restartTimer() {
   msCount = 0;
   msPassedText.textContent = msCount.toString().padStart(4, "0");
 
-  //set time interval to 1 ms
+  //set time interval to 1 ms; this is just used to update the timer display
   timeInterval = setInterval(() => {
-    msCount++;
-    msPassedText.textContent = msCount.toString().padStart(4, "0");
+    //msCount++;
+    let msCountTemp = Date.now() - lastTime;
+    msPassedText.textContent = msCountTemp.toString().padStart(4, "0");
   }, 1);
-  //NOTE: setInterval is INACCURATE, find another solution
+  msCount = Date.now() - lastTime;
+  console.log("date now: " + Date.now()); //use date now for more accurate time readings
 }
 
 function updateNumClicksText() {
@@ -60,6 +64,7 @@ let rightDoubleClicks = 0;
 }); */
 
 document.addEventListener("contextmenu", handleRightMouseClicks);
+let lastTimeRight = 0;
 
 function handleRightMouseClicks(event) {
   event.preventDefault(); //prevents context menu from showing up
@@ -70,6 +75,7 @@ function handleRightMouseClicks(event) {
   numRightClicksText.textContent = numRightClicks.toString().padStart(4, "0");
 
   restartTimerRight();
+  lastTimeRight = Date.now();
 }
 
 function restartTimerRight() {
@@ -79,18 +85,21 @@ function restartTimerRight() {
 
   //set time interval to 1 ms
   timeIntervalRight = setInterval(() => {
-    msCountRight++;
-    msPassedRightText.textContent = msCountRight.toString().padStart(4, "0");
+    //msCountRight++;
+    let msCountTemp = Date.now() - lastTimeRight;
+    msPassedRightText.textContent = msCountTemp.toString().padStart(4, "0");
   }, 1);
   //NOTE: setInterval is INACCURATE, find another solution
+  msCountRight = Date.now() - lastTimeRight;
 }
 
 let numDoubleClicks = 0; //the total number of double clicks between right and left clicks
-const doubleClickWindow = 8; //defines the time window for two consecutive clicks to be considered a double click
+const doubleClickWindow = 80; //defines the time window for two consecutive clicks to be considered a double click in ms
 
 //checks for double clicks, mousebutton param determines whether it checks for left(0) or right(1) clicks
 function checkDoubleClick(mousebutton) {
   if (mousebutton == 0) {
+    console.log("mscount: " + msCount);
     if (msCount < doubleClickWindow) {
       numDoubleClicks++;
       numDoubleClicksText.textContent = numDoubleClicks
