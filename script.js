@@ -10,6 +10,7 @@ const msPassedRightText = document.getElementById("msPassedRight");
 
 const inputEl = document.getElementById("input-el");
 const inputBtn = document.getElementById("input-btn");
+const clickWindowTxt = document.getElementById("clickWindowTxt");
 
 //left clicks
 let numClicks = 0;
@@ -98,6 +99,7 @@ function restartTimerRight() {
 
 let numDoubleClicks = 0; //the total number of double clicks between right and left clicks
 let doubleClickWindow = 80; //defines the time window for two consecutive clicks to be considered a double click in ms
+clickWindowTxt.textContent = doubleClickWindow;
 
 //checks for double clicks, mousebutton param determines whether it checks for left(0) or right(1) clicks
 function checkDoubleClick(mousebutton) {
@@ -141,6 +143,7 @@ inputBtn.addEventListener("click", function () {
   if (inputEl.value != "") {
     console.log("input field isnt empty");
     doubleClickWindow = inputEl.value;
+    clickWindowTxt.textContent = doubleClickWindow;
     console.log("doubleClickWindow: " + doubleClickWindow);
   }
 });
