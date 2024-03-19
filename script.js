@@ -8,6 +8,9 @@ const leftDoubleClicksText = document.getElementById("leftDoubleClicks");
 const rightDoubleClicksText = document.getElementById("rightDoubleClicks");
 const msPassedRightText = document.getElementById("msPassedRight");
 
+const inputEl = document.getElementById("input-el");
+const inputBtn = document.getElementById("input-btn");
+
 //left clicks
 let numClicks = 0;
 let timeInterval;
@@ -40,7 +43,7 @@ function restartTimer() {
     msPassedText.textContent = msCountTemp.toString().padStart(4, "0");
   }, 1);
   msCount = Date.now() - lastTime;
-  console.log("date now: " + Date.now()); //use date now for more accurate time readings
+  //console.log("date now: " + Date.now()); //use date now for more accurate time readings
 }
 
 function updateNumClicksText() {
@@ -94,12 +97,12 @@ function restartTimerRight() {
 }
 
 let numDoubleClicks = 0; //the total number of double clicks between right and left clicks
-const doubleClickWindow = 80; //defines the time window for two consecutive clicks to be considered a double click in ms
+let doubleClickWindow = 80; //defines the time window for two consecutive clicks to be considered a double click in ms
 
 //checks for double clicks, mousebutton param determines whether it checks for left(0) or right(1) clicks
 function checkDoubleClick(mousebutton) {
   if (mousebutton == 0) {
-    console.log("mscount: " + msCount);
+    //console.log("mscount: " + msCount);
     if (msCount < doubleClickWindow) {
       numDoubleClicks++;
       numDoubleClicksText.textContent = numDoubleClicks
@@ -132,3 +135,12 @@ function checkDoubleClick(mousebutton) {
     }
   }
 }
+
+inputBtn.addEventListener("click", function () {
+  console.log("input button clicked!");
+  if (inputEl.value != "") {
+    console.log("input field isnt empty");
+    doubleClickWindow = inputEl.value;
+    console.log("doubleClickWindow: " + doubleClickWindow);
+  }
+});
