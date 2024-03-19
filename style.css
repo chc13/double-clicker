@@ -90,3 +90,14 @@ html {
   /* background-repeat: no-repeat; */
   background-attachment: fixed;
 }
+
+.console-box {
+  height: 200px;
+  width: 400px;
+  resize: both;
+  text-align: left;
+  white-space: pre-wrap;
+  /* position: relative;
+  left: 0;
+  right: 0; */
+}

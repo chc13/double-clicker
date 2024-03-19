@@ -12,6 +12,10 @@ const inputEl = document.getElementById("input-el");
 const inputBtn = document.getElementById("input-btn");
 const clickWindowTxt = document.getElementById("clickWindowTxt");
 
+const consoleBox = document.getElementById("console-box");
+//consoleBox.value = "";
+consoleBox.textContent = "";
+
 //left clicks
 let numClicks = 0;
 let timeInterval;
@@ -104,7 +108,10 @@ clickWindowTxt.textContent = doubleClickWindow;
 //checks for double clicks, mousebutton param determines whether it checks for left(0) or right(1) clicks
 function checkDoubleClick(mousebutton) {
   if (mousebutton == 0) {
-    //console.log("mscount: " + msCount);
+    console.log("mscount: " + msCount);
+    //consoleBox.value += "\n " + msCount + " ";
+    consoleBox.textContent += "Left Click: " + msCount + " ms\n";
+    //consoleBox.scrollTop = consoleBox.scrollHeight;
     if (msCount < doubleClickWindow) {
       numDoubleClicks++;
       numDoubleClicksText.textContent = numDoubleClicks
@@ -122,8 +129,13 @@ function checkDoubleClick(mousebutton) {
           .toString()
           .padStart(4, "0");
       }
+
+      consoleBox.textContent += "Left Mouse Button Double Click Detected!\n";
     }
   } else if (mousebutton == 1) {
+    console.log("msCountRight: " + msCountRight);
+    consoleBox.textContent += "Right Click: " + msCountRight + " ms\n";
+    //consoleBox.scrollTop = consoleBox.scrollHeight;
     if (msCountRight < doubleClickWindow) {
       numDoubleClicks++;
       numDoubleClicksText.textContent = numDoubleClicks
@@ -134,8 +146,11 @@ function checkDoubleClick(mousebutton) {
       rightDoubleClicksText.textContent = rightDoubleClicks
         .toString()
         .padStart(4, "0");
+
+      consoleBox.textContent += "Right Mouse Button Double Click Detected!\n";
     }
   }
+  consoleBox.scrollTop = consoleBox.scrollHeight;
 }
 
 inputBtn.addEventListener("click", function () {
