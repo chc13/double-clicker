@@ -27,6 +27,7 @@ let lastTime = 0; //stores the last date in ms for a click
 function handleMouseClick(event) {
   /* console.log(numClicks); */
   if (numClicks > 0) {
+    msCount = Date.now() - lastTime; //update msCount here so that the second click isn't incorrectly reported
     checkDoubleClick(0);
   }
   numClicks++;
@@ -48,7 +49,6 @@ function restartTimer() {
     msPassedText.textContent = msCountTemp.toString().padStart(4, "0");
   }, 1);
   msCount = Date.now() - lastTime;
-  //console.log("date now: " + Date.now()); //use date now for more accurate time readings
 }
 
 function updateNumClicksText() {
@@ -77,6 +77,7 @@ let lastTimeRight = 0;
 function handleRightMouseClicks(event) {
   event.preventDefault(); //prevents context menu from showing up
   if (numRightClicks > 0) {
+    msCountRight = Date.now() - lastTimeRight;
     checkDoubleClick(1);
   }
   numRightClicks++;
@@ -97,7 +98,7 @@ function restartTimerRight() {
     let msCountTemp = Date.now() - lastTimeRight;
     msPassedRightText.textContent = msCountTemp.toString().padStart(4, "0");
   }, 1);
-  //NOTE: setInterval is INACCURATE, find another solution
+
   msCountRight = Date.now() - lastTimeRight;
 }
 
