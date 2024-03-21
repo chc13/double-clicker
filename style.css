@@ -101,3 +101,16 @@ html {
   left: 0;
   right: 0; */
 }
+
+button {
+  background-color: #a02b2b;
+  color: white;
+  /* padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px; */
+  padding: 10px 20px;
+  border: 1px solid #632525;
+  font-weight: bold;
+  margin-top: 4px;
+}

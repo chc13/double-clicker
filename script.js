@@ -16,7 +16,6 @@ const consoleBox = document.getElementById("console-box");
 
 const resetBtn = document.getElementById("reset-btn");
 
-//consoleBox.value = "";
 consoleBox.textContent = "";
 
 //resets console box
@@ -117,10 +116,9 @@ clickWindowTxt.textContent = doubleClickWindow;
 //checks for double clicks, mousebutton param determines whether it checks for left(0) or right(1) clicks
 function checkDoubleClick(mousebutton) {
   if (mousebutton == 0) {
-    console.log("mscount: " + msCount);
-    //consoleBox.value += "\n " + msCount + " ";
-    consoleBox.textContent += "Left Click: " + msCount + " ms\n";
-    //consoleBox.scrollTop = consoleBox.scrollHeight;
+    //consoleBox.textContent += "Left Click: " + msCount + " ms\n";
+    newConsoleMsg("Left Click: " + msCount + " ms");
+
     if (msCount < doubleClickWindow) {
       numDoubleClicks++;
       numDoubleClicksText.textContent = numDoubleClicks
@@ -139,12 +137,13 @@ function checkDoubleClick(mousebutton) {
           .padStart(4, "0");
       }
 
-      consoleBox.textContent += "Left Mouse Button Double Click Detected!\n";
+      //consoleBox.textContent += "Left Mouse Button Double Click Detected!\n";
+      newConsoleMsg("Left Mouse Button Double Click Detected!");
     }
   } else if (mousebutton == 1) {
-    console.log("msCountRight: " + msCountRight);
-    consoleBox.textContent += "Right Click: " + msCountRight + " ms\n";
-    //consoleBox.scrollTop = consoleBox.scrollHeight;
+    //consoleBox.textContent += "Right Click: " + msCountRight + " ms\n";
+    newConsoleMsg("Right Click: " + msCountRight + " ms");
+
     if (msCountRight < doubleClickWindow) {
       numDoubleClicks++;
       numDoubleClicksText.textContent = numDoubleClicks
@@ -156,18 +155,22 @@ function checkDoubleClick(mousebutton) {
         .toString()
         .padStart(4, "0");
 
-      consoleBox.textContent += "Right Mouse Button Double Click Detected!\n";
+      //consoleBox.textContent += "Right Mouse Button Double Click Detected!\n";
+      newConsoleMsg("Right Mouse Button Double Click Detected!");
     }
   }
   consoleBox.scrollTop = consoleBox.scrollHeight;
 }
 
 inputBtn.addEventListener("click", function () {
-  console.log("input button clicked!");
   if (inputEl.value != "") {
-    console.log("input field isnt empty");
     doubleClickWindow = inputEl.value;
     clickWindowTxt.textContent = doubleClickWindow;
-    console.log("doubleClickWindow: " + doubleClickWindow);
+    newConsoleMsg("Time Window changed to " + inputEl.value);
   }
 });
+
+function newConsoleMsg(msg) {
+  consoleBox.textContent += msg + "\n";
+  consoleBox.scrollTop = consoleBox.scrollHeight;
+}
