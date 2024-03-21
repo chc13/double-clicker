@@ -13,8 +13,16 @@ const inputBtn = document.getElementById("input-btn");
 const clickWindowTxt = document.getElementById("clickWindowTxt");
 
 const consoleBox = document.getElementById("console-box");
+
+const resetBtn = document.getElementById("reset-btn");
+
 //consoleBox.value = "";
 consoleBox.textContent = "";
+
+//resets console box
+resetBtn.addEventListener("click", function () {
+  consoleBox.textContent = "";
+});
 
 //left clicks
 let numClicks = 0;
