@@ -16,6 +16,8 @@ const consoleBox = document.getElementById("console-box");
 
 const resetBtn = document.getElementById("reset-btn");
 
+const contextCheckbox = document.getElementById("contextCheckbox");
+
 consoleBox.textContent = "";
 
 //resets console box
@@ -82,7 +84,10 @@ document.addEventListener("contextmenu", handleRightMouseClicks);
 let lastTimeRight = 0;
 
 function handleRightMouseClicks(event) {
-  event.preventDefault(); //prevents context menu from showing up
+  if (contextCheckbox.checked) {
+    event.preventDefault(); //prevents context menu from showing up
+  }
+
   if (numRightClicks > 0) {
     msCountRight = Date.now() - lastTimeRight;
     checkDoubleClick(1);
