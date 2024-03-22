@@ -166,7 +166,7 @@ inputBtn.addEventListener("click", function () {
   if (inputEl.value != "") {
     doubleClickWindow = inputEl.value;
     clickWindowTxt.textContent = doubleClickWindow;
-    newConsoleMsg("Time Window changed to " + inputEl.value);
+    newConsoleMsg("Time Window changed to " + inputEl.value + " ms");
   }
 });
 
