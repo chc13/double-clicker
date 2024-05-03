@@ -17,6 +17,12 @@
   font-style: normal;
 }
 
+.container {
+  max-width: 1110px;
+  padding: 0 25px;
+  margin: 0 auto 46px;
+}
+
 /* VARIABLES */
 :root {
   /* FONTS */
