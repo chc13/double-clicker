@@ -23,6 +23,14 @@
   margin: 0 auto 46px;
 }
 
+.footer {
+  font-size: 12px;
+  text-align: center;
+}
+.footer a {
+  color: hsl(228, 45%, 44%);
+}
+
 /* VARIABLES */
 :root {
   /* FONTS */
@@ -114,6 +122,15 @@ html {
   /* position: relative;
   left: 0;
   right: 0; */
+}
+
+.visually-hidden {
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
 }
 
 button {
