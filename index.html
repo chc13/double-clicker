@@ -15,12 +15,20 @@
     <script src="script.js" defer></script>
   </head>
   <body class="container">
-    <h1>Is My Mouse Double Clicking?</h1>
-    <h2>Click on the page to check if your mouse is double clicking</h2>
+    <header class="header">
+      <div class="header__title">
+        <div>Is My Mouse Double Clicking?</div>
+        <div class="header__subtitle">
+          Click on the page to check if your mouse is double clicking
+        </div>
+      </div>
+    </header>
+
     <div>
       <h3>Left Clicks:</h3>
       <h4 id="numClicks">0000</h4>
     </div>
+
     <div>
       <h3>Right Clicks:</h3>
       <h4 id="numRightClicks">0000</h4>
@@ -30,29 +38,38 @@
       <h3>Left Double Clicks</h3>
       <h4 id="leftDoubleClicks">0000</h4>
     </div>
+
     <div>
       <h3>Right Double Clicks</h3>
       <h4 id="rightDoubleClicks">0000</h4>
     </div>
+
     <div>
       <h3>Double clicks:</h3>
       <h4 id="numDoubleClicks">0000</h4>
     </div>
+
     <div>
       <h3>ms passed since last left click:</h3>
       <h4 id="msPassed">0000</h4>
     </div>
+
     <div>
       <h3>ms passed since last right click:</h3>
       <h4 id="msPassedRight">0000</h4>
     </div>
+
     <div>Double Click Time Window:</div>
+
     <div id="clickWindowTxt">hi</div>
+
     <div>
       <input type="number" value="80" id="input-el" />ms
       <button id="input-btn">Submit</button>
     </div>
+
     <div>Console Box:</div>
+
     <div>
       <textarea
         cols="30"
@@ -65,6 +82,7 @@ test</textarea
       >
       <button id="reset-btn">Reset</button>
     </div>
+
     <input
       type="checkbox"
       id="contextCheckbox"

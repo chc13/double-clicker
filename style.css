@@ -143,3 +143,16 @@ button:active {
   /* box-shadow: 0 5px #666; */
   /* transform: translateY(4px); */
 }
+
+.header {
+}
+
+.header__title {
+  /* width: 100%; */
+  font-size: xx-large;
+  font-weight: bold;
+}
+
+.header__subtitle {
+  font-size: x-large;
+}
