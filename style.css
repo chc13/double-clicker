@@ -23,14 +23,6 @@
   margin: 0 auto 46px;
 }
 
-.footer {
-  font-size: 12px;
-  text-align: center;
-}
-.footer a {
-  color: #305252;
-}
-
 /* VARIABLES */
 :root {
   /* FONTS */
@@ -39,16 +31,23 @@
   /* --FS: clamp(1rem, 2.2vh, 1.5rem); */
 
   /* COLORS */
+
+  --SLATE-GRAY: #77878b;
+  --DARK-SLATE-GRAY: #305252;
+  --ONYX: #373e40;
+  --TEAL: #488286;
+  --LIGHT-BLUE: #b7d5d4;
+
   /*   --BGCOLOR-FADE: #0acdff; */
   /* --BGCOLOR: #dcfffb; */
-  --BG-COLOR: #b7d5d4;
+  --BG-COLOR: var(--LIGHT-BLUE);
   /*   --BGIMAGE: linear-gradient(
     to right top,
     var(--BGCOLOR),
     rgb(253, 243, 225),
     var(--BGCOLOR-FADE)
   ); */
-  --FONT-COLOR: #373e40;
+  --FONT-COLOR: black;
   /*   --BODY-BGCOLOR: #fff;
   --BORDER-COLOR: #333;
   --BUTTON-COLOR: white;
@@ -62,10 +61,10 @@
   --LINK-COLOR: black;
   --LINK-HOVER: hsla(0, 0%, 0%, 0.6);
   --NAV-BGCOLOR: white; */
-  --BTN-COLOR: #305252;
-  --BTN-BORDER-COLOR: #373e40;
-  --BTN-HOVER-COLOR: #77878b;
-  --BTN-ACTIVE-COLOR: #305252;
+  --BTN-COLOR: var(--DARK-SLATE-GRAY);
+  --BTN-BORDER-COLOR: var(--ONYX);
+  --BTN-HOVER-COLOR: var(--SLATE-GRAY);
+  --BTN-ACTIVE-COLOR: var(--DARK-SLATE-GRAY);
 
   /* BORDERS */
   /*   --BORDERS: 1px solid var(--BORDER-COLOR);
@@ -197,3 +196,11 @@ h2 {
   margin-bottom: 24px;
 }
  */
+
+.footer {
+  font-size: 12px;
+  text-align: center;
+}
+.footer a {
+  color: var(--ONYX);
+}
