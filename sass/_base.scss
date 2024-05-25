@@ -10,13 +10,21 @@ $clear-button-color: #9f6060;
 :root {
   --FONT-INTER: "Kiwi Maru", sans-serif;
 
+  /* Light Mode Colors */
+  --TAUPE: #463f3a;
+  --BATTLESHIP-GRAY: #8a817c;
+  --SILVER: #bcb8b1;
+  --ISABELLINE: #f4f3ee;
+  --MELON: #e0afa0;
+
+  /* Dark Mode Colors */
   --SLATE-GRAY: #77878b;
   --DARK-SLATE-GRAY: #305252;
   --ONYX: #373e40;
   --TEAL: #488286;
   --LIGHT-BLUE: #b7d5d4;
-  --BLACK: #000;
 
+  --BLACK: #000;
   --WHITE: #fff;
 
   --DARK-BG: #1f2324;
@@ -60,7 +68,7 @@ body {
 section {
   background-color: $container-bgcolor;
   width: 90%;
-  max-width: 700px;
+  max-width: 800px;
   margin: auto;
   border: 1px solid $container-bordercolor;
   border-radius: 10px;
