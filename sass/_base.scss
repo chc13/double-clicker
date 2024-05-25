@@ -1,21 +1,11 @@
-$default-font-color: #000;
-$background-color: #4a90e2;
-$container-bgcolor: #f2f2f2;
-$container-bordercolor: #000;
-$textbox-bordercolor: lightgray;
-$button-textcolor: #fff;
-$add-button-color: #4caf50;
-$clear-button-color: #9f6060;
-
 :root {
-  --FONT-INTER: "Kiwi Maru", sans-serif;
-
   /* Light Mode Colors */
   --TAUPE: #463f3a;
   --BATTLESHIP-GRAY: #8a817c;
   --SILVER: #bcb8b1;
   --ISABELLINE: #f4f3ee;
   --MELON: #e0afa0;
+  --LIGHT-BG: #fff;
 
   /* Dark Mode Colors */
   --SLATE-GRAY: #77878b;
@@ -23,11 +13,27 @@ $clear-button-color: #9f6060;
   --ONYX: #373e40;
   --TEAL: #488286;
   --LIGHT-BLUE: #b7d5d4;
+  --DARK-BG: #1f2324;
 
   --BLACK: #000;
   --WHITE: #fff;
 
-  --DARK-BG: #1f2324;
+  --BG-COLOR: var(--LIGHT-BG)
+  --FONT-COLOR: var(--BLACK);
+  --CONTAINER-COLOR: var(--ISABELLINE);
+  --CONTAINER-BORDER-COLOR: var(--BATTLESHIP-GRAY);
+
+  --COLOR-MODE: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --COLOR-MODE: dark;
+  }
+}
+
+[color-scheme="dark"] {
+  --BG-COLOR: var(--DARK-BG);
 }
 
 .kiwi-maru-regular {
@@ -52,7 +58,7 @@ html,
 body {
   font-size: 12px;
   font-family: "Kiwi Maru", sans-serif;
-  color: var(--BLACK);
+  color: var(--FONT-COLOR);
   width: 100%;
   min-height: 100%;
   @include mq(800px) {
@@ -62,16 +68,17 @@ body {
 
 body {
   padding: 20px;
-  background-color: var(--WHITE);
+  background-color: var(--BG-COLOR);
 }
 
 section {
-  background-color: $container-bgcolor;
+  background-color: var(--CONTAINER-COLOR);
   width: 90%;
   max-width: 800px;
   margin: auto;
-  border: 1px solid $container-bordercolor;
-  border-radius: 10px;
+  border: 1px solid var(--CONTAINER-BORDER-COLOR);
+
+  border-radius: 2px;
 }
 
 .visually-hidden {
