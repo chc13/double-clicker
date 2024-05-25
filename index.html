@@ -26,89 +26,107 @@
     <script src="script.js" defer></script>
   </head>
   <body class="container">
-    <header class="header">
-      <div class="header__title">
-        <div>Is My Mouse Double Clicking?</div>
-        <div class="header__subtitle">
-          Click on the page to check if your mouse is double clicking
+    <main>
+      <!-- header section -->
+      <section>
+        <header class="header">
+          <div class="header__title">
+            <h1>Is My Mouse Double Clicking?</h1>
+            <div class="header__subtitle">
+              Click on the page to check if your mouse is double clicking
+            </div>
+          </div>
+        </header>
+      </section>
+
+      <section>
+        <div>
+          <h3>Left Clicks:</h3>
+          <h4 id="numClicks">0000</h4>
         </div>
-      </div>
-    </header>
 
-    <div>
-      <h3>Left Clicks:</h3>
-      <h4 id="numClicks">0000</h4>
-    </div>
+        <div>
+          <h3>Left Double Clicks</h3>
+          <h4 id="leftDoubleClicks">0000</h4>
+        </div>
 
-    <div>
-      <h3>Right Clicks:</h3>
-      <h4 id="numRightClicks">0000</h4>
-    </div>
+        <div>
+          <h3>ms passed since last left click:</h3>
+          <h4 id="msPassed">0000</h4>
+        </div>
+      </section>
 
-    <div>
-      <h3>Left Double Clicks</h3>
-      <h4 id="leftDoubleClicks">0000</h4>
-    </div>
+      <section>
+        <div>
+          <h3>Right Clicks:</h3>
+          <h4 id="numRightClicks">0000</h4>
+        </div>
 
-    <div>
-      <h3>Right Double Clicks</h3>
-      <h4 id="rightDoubleClicks">0000</h4>
-    </div>
+        <div>
+          <h3>Right Double Clicks</h3>
+          <h4 id="rightDoubleClicks">0000</h4>
+        </div>
 
-    <div>
-      <h3>Double clicks:</h3>
-      <h4 id="numDoubleClicks">0000</h4>
-    </div>
+        <div>
+          <h3>ms passed since last right click:</h3>
+          <h4 id="msPassedRight">0000</h4>
+        </div>
+      </section>
 
-    <div>
-      <h3>ms passed since last left click:</h3>
-      <h4 id="msPassed">0000</h4>
-    </div>
+      <section>
+        <div>
+          <h3>Double clicks:</h3>
+          <h4 id="numDoubleClicks">0000</h4>
+        </div>
+      </section>
 
-    <div>
-      <h3>ms passed since last right click:</h3>
-      <h4 id="msPassedRight">0000</h4>
-    </div>
+      <section>
+        <div>Double Click Time Window:</div>
 
-    <div>Double Click Time Window:</div>
+        <div id="clickWindowTxt">hi</div>
 
-    <div id="clickWindowTxt">hi</div>
+        <div>
+          <input type="number" value="80" id="input-el" />ms
+          <button id="input-btn">Submit</button>
+        </div>
 
-    <div>
-      <input type="number" value="80" id="input-el" />ms
-      <button id="input-btn">Submit</button>
-    </div>
+        <input
+          type="checkbox"
+          id="contextCheckbox"
+          name="contextCheckbox"
+          value="context"
+          checked
+        />
+        <label for="contextCheckbox">
+          Disable Context Menu On Right Click</label
+        >
+      </section>
 
-    <div>Console Box:</div>
+      <section>
+        <div>Console Box:</div>
 
-    <div>
-      <textarea
-        cols="30"
-        rows="10"
-        class="console-box"
-        id="console-box"
-        readonly
-      >
+        <div>
+          <textarea
+            cols="30"
+            rows="10"
+            class="console-box"
+            id="console-box"
+            readonly
+          >
 test</textarea
-      >
-      <button id="reset-btn">Reset</button>
-    </div>
+          >
+          <button id="reset-btn">Reset</button>
+        </div>
+      </section>
 
-    <input
-      type="checkbox"
-      id="contextCheckbox"
-      name="contextCheckbox"
-      value="context"
-      checked
-    />
-    <label for="contextCheckbox"> Disable Context Menu On Right Click</label
-    ><br />
+      <br />
 
-    <div class="footer">
-      Coded by chc13.
-      <a href="https://github.com/chc13/double-clicker" target="_blank"
-        >Github link here.</a
-      >
-    </div>
+      <div class="footer">
+        Coded by chc13.
+        <a href="https://github.com/chc13/double-clicker" target="_blank"
+          >Github link here.</a
+        >
+      </div>
+    </main>
   </body>
 </html>
