@@ -18,10 +18,11 @@
   --BLACK: #000;
   --WHITE: #fff;
 
-  --BG-COLOR: var(--LIGHT-BG)
-  --FONT-COLOR: var(--BLACK);
+  --BG-COLOR: var(--LIGHT-BG);
+  --FONT-COLOR: var(--TAUPE);
   --CONTAINER-COLOR: var(--ISABELLINE);
   --CONTAINER-BORDER-COLOR: var(--BATTLESHIP-GRAY);
+  --HYPERLINK-COLOR: var(--MELON);
 
   --COLOR-MODE: light;
 }
@@ -74,7 +75,7 @@ body {
 section {
   background-color: var(--CONTAINER-COLOR);
   width: 90%;
-  max-width: 800px;
+  max-width: 1200px;
   margin: auto;
   border: 1px solid var(--CONTAINER-BORDER-COLOR);
 
