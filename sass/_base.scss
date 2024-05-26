@@ -23,6 +23,10 @@
   --CONTAINER-COLOR: var(--ISABELLINE);
   --CONTAINER-BORDER-COLOR: var(--BATTLESHIP-GRAY);
   --HYPERLINK-COLOR: var(--MELON);
+  --BTN-COLOR: var(--MELON);
+  --BTN-BORDER-COLOR: var(--BATTLESHIP-GRAY);
+  --BTN-HOVER-COLOR: var(--SILVER);
+  --BTN-ACTIVE-COLOR: var(--SILVER);
 
   --COLOR-MODE: light;
 }
@@ -80,6 +84,17 @@ section {
   /* border: 1px solid var(--CONTAINER-BORDER-COLOR); */
 
   border-radius: 2px;
+}
+
+.console-box {
+  height: 200px;
+  width: 400px;
+  resize: both;
+  text-align: left;
+  white-space: pre-wrap;
+  /* position: relative;
+  left: 0;
+  right: 0; */
 }
 
 .visually-hidden {
