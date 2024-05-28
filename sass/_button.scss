@@ -17,4 +17,8 @@ button {
   &:active {
     background-color: var(--BTN-ACTIVE-COLOR);
   }
+
+  &:hover {
+    filter: brightness(0.9);
+  }
 }
