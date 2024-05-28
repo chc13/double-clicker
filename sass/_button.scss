@@ -14,11 +14,12 @@ button {
 
   cursor: pointer;
 
-  &:active {
-    background-color: var(--BTN-ACTIVE-COLOR);
+  &:hover {
+    /* filter: brightness(0.9); */
+    background-color: var(--BTN-HOVER-COLOR);
   }
 
-  &:hover {
-    filter: brightness(0.9);
+  &:active {
+    background-color: var(--BTN-ACTIVE-COLOR);
   }
 }
