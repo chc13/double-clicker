@@ -1,0 +1,14 @@
+.doubleclick {
+  /* background-color: transparent; */
+
+  &__label {
+    font-size: 16px;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+
+  &__count {
+    font-size: 16px;
+    color: var(--FONT-COLOR2);
+  }
+}
