@@ -21,7 +21,7 @@
       href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🖱️</text></svg>"
     />
 
-    <!--  <link rel="stylesheet" href="style.css" /> -->
+    <!-- <link rel="stylesheet" href="style.css" /> -->
     <link rel="stylesheet" href="dist/css/style.min.css" />
     <script src="script.js" defer></script>
   </head>
@@ -39,37 +39,43 @@
         </header>
       </section>
 
-      <section>
-        <div>
-          <h3>Left Clicks</h3>
-          <h4 id="numClicks">0000</h4>
+      <section class="clickstats-grid">
+        <div class="clickstats clickstats--left">
+          <div>
+            <div class="clickstats__clicklabel">Left Clicks</div>
+            <div class="clickstats__clickcount" id="numClicks">0000</div>
+          </div>
+
+          <div>
+            <div class="clickstats__doubleclicklabel">Left Double Clicks</div>
+            <div class="clickstats__doubleclickcount" id="leftDoubleClicks">
+              0000
+            </div>
+          </div>
+
+          <div>
+            <div class="clickstats__mspassedlabel">
+              ms passed since last left click
+            </div>
+            <div class="clickstats__mspassedcount" id="msPassed">0000</div>
+          </div>
         </div>
 
-        <div>
-          <h3>Left Double Clicks</h3>
-          <h4 id="leftDoubleClicks">0000</h4>
-        </div>
+        <div class="clickstats clickstats--right">
+          <div>
+            <h3>Right Clicks</h3>
+            <h4 id="numRightClicks">0000</h4>
+          </div>
 
-        <div>
-          <h3>ms passed since last left click</h3>
-          <h4 id="msPassed">0000</h4>
-        </div>
-      </section>
+          <div>
+            <h3>Right Double Clicks</h3>
+            <h4 id="rightDoubleClicks">0000</h4>
+          </div>
 
-      <section>
-        <div>
-          <h3>Right Clicks</h3>
-          <h4 id="numRightClicks">0000</h4>
-        </div>
-
-        <div>
-          <h3>Right Double Clicks</h3>
-          <h4 id="rightDoubleClicks">0000</h4>
-        </div>
-
-        <div>
-          <h3>ms passed since last right click</h3>
-          <h4 id="msPassedRight">0000</h4>
+          <div>
+            <h3>ms passed since last right click</h3>
+            <h4 id="msPassedRight">0000</h4>
+          </div>
         </div>
       </section>
 
