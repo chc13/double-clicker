@@ -39,6 +39,7 @@
         </header>
       </section>
 
+      <!-- clickstats section -->
       <section class="clickstats-grid">
         <div class="clickstats clickstats--left">
           <div>
@@ -75,6 +76,7 @@
         </div>
       </section>
 
+      <!--  double click stats section -->
       <section class="doubleclick">
         <div>
           <div class="doubleclick__label">Double clicks</div>
@@ -82,42 +84,53 @@
         </div>
       </section>
 
-      <section>
-        <div>Double Click Time Window:</div>
+      <!-- options and console section -->
+      <section class="settings">
+        <div class="settings--options">
+          <div>SETTINGS</div>
+          <div class="settings__label">
+            Double Click Time Window:
+            <span class="settings__sublabel" id="clickWindowTxt">hi</span>
+          </div>
 
-        <div id="clickWindowTxt">hi</div>
+          <div class="settings__label">
+            <input type="number" value="80" id="input-el" />ms
+            <button id="input-btn">Submit</button>
+          </div>
 
-        <div>
-          <input type="number" value="80" id="input-el" />ms
-          <button id="input-btn">Submit</button>
+          <div class="settings__label">
+            <label for="contextCheckbox">
+              Disable Context Menu On Right Click</label
+            >
+            <input
+              type="checkbox"
+              id="contextCheckbox"
+              name="contextCheckbox"
+              value="context"
+              checked
+            />
+          </div>
+
+          <div class="settings__label">
+            Reset Console
+            <button id="reset-btn">Reset</button>
+          </div>
         </div>
 
-        <input
-          type="checkbox"
-          id="contextCheckbox"
-          name="contextCheckbox"
-          value="context"
-          checked
-        />
-        <label for="contextCheckbox">
-          Disable Context Menu On Right Click</label
-        >
-      </section>
+        <div class="settings--console">
+          <div>CONSOLE</div>
 
-      <section>
-        <div>Console Box</div>
-
-        <div>
-          <textarea
-            cols="30"
-            rows="10"
-            class="console-box"
-            id="console-box"
-            readonly
-          >
+          <div>
+            <textarea
+              cols="30"
+              rows="10"
+              class="console-box"
+              id="console-box"
+              readonly
+            >
 test</textarea
-          >
-          <button id="reset-btn">Reset</button>
+            >
+          </div>
         </div>
       </section>
 
