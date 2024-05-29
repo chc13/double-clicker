@@ -18,6 +18,20 @@ const resetBtn = document.getElementById("reset-btn");
 
 const contextCheckbox = document.getElementById("contextCheckbox");
 
+const doubleclickCountEl = document.getElementById("dblCount");
+const clickstatsLeftEl = document.getElementById("clickstatsLeft");
+const clickstatsRightEl = document.getElementById("clickstatsRight");
+
+/* window.addEventListener("load", function () {
+  // code here
+  console.log(doubleclickCountEl);
+  if (doubleclickCountEl) {
+    console.log("added new class");
+    doubleclickCountEl.className += " doubleclick--alert";
+    console.log(doubleclickCountEl.className);
+  }
+}); */
+
 consoleBox.textContent = "";
 
 //resets console box
@@ -144,6 +158,10 @@ function checkDoubleClick(mousebutton) {
 
       //consoleBox.textContent += "Left Mouse Button Double Click Detected!\n";
       newConsoleMsg("Left Mouse Button Double Click Detected!");
+
+      //change double click element color to alert
+      doubleclickCountEl.className += " doubleclick--alert";
+      clickstatsLeftEl.classList += " clickstats--alert";
     }
   } else if (mousebutton == 1) {
     //consoleBox.textContent += "Right Click: " + msCountRight + " ms\n";
@@ -162,6 +180,10 @@ function checkDoubleClick(mousebutton) {
 
       //consoleBox.textContent += "Right Mouse Button Double Click Detected!\n";
       newConsoleMsg("Right Mouse Button Double Click Detected!");
+
+      //change double click element color to alert
+      doubleclickCountEl.className += " doubleclick--alert";
+      clickstatsRightEl.classList += " clickstats--alert";
     }
   }
   consoleBox.scrollTop = consoleBox.scrollHeight;
