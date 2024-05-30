@@ -176,8 +176,12 @@ function checkDoubleClick(mousebutton) {
       newConsoleMsg("Left Mouse Button Double Click Detected!");
 
       //change double click element color to alert
-      doubleclickCountEl.className += " doubleclick--alert";
-      clickstatsLeftEl.classList += " clickstats--alert";
+      if (doubleclickCountEl.className == "doubleclick") {
+        doubleclickCountEl.className += " doubleclick--alert";
+      }
+      if (clickstatsLeftEl.classList == "clickstats clickstats--left") {
+        clickstatsLeftEl.classList += " clickstats--alert";
+      }
       restartAlertTimer();
     }
   } else if (mousebutton == 1) {
@@ -199,8 +203,13 @@ function checkDoubleClick(mousebutton) {
       newConsoleMsg("Right Mouse Button Double Click Detected!");
 
       //change double click element color to alert
-      doubleclickCountEl.className += " doubleclick--alert";
-      clickstatsRightEl.classList += " clickstats--alert";
+      if (doubleclickCountEl.className == "doubleclick") {
+        doubleclickCountEl.className += " doubleclick--alert";
+      }
+      if (clickstatsRightEl.classList == "clickstats clickstats--right") {
+        clickstatsRightEl.classList += " clickstats--alert";
+      }
+
       restartAlertTimer();
     }
   }
