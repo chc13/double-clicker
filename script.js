@@ -132,6 +132,23 @@ let numDoubleClicks = 0; //the total number of double clicks between right and l
 let doubleClickWindow = 80; //defines the time window for two consecutive clicks to be considered a double click in ms
 clickWindowTxt.textContent = doubleClickWindow;
 
+let timeIntervalAlert;
+/* let msCountAlert = 0;
+let lastTimeAlert = 0; */
+
+function restartAlertTimer() {
+  clearInterval(timeIntervalAlert);
+  /* msCountAlert = 0; */
+
+  timeIntervalAlert = setInterval(() => {
+    console.log("reset colors now");
+    doubleclickCountEl.className = "doubleclick";
+    clickstatsLeftEl.classList = "clickstats clickstats--left";
+    clickstatsRightEl.classList = "clickstats clickstats--right";
+    clearInterval(timeIntervalAlert);
+  }, 2000);
+}
+
 //checks for double clicks, mousebutton param determines whether it checks for left(0) or right(1) clicks
 function checkDoubleClick(mousebutton) {
   if (mousebutton == 0) {
@@ -162,6 +179,7 @@ function checkDoubleClick(mousebutton) {
       //change double click element color to alert
       doubleclickCountEl.className += " doubleclick--alert";
       clickstatsLeftEl.classList += " clickstats--alert";
+      restartAlertTimer();
     }
   } else if (mousebutton == 1) {
     //consoleBox.textContent += "Right Click: " + msCountRight + " ms\n";
@@ -184,6 +202,7 @@ function checkDoubleClick(mousebutton) {
       //change double click element color to alert
       doubleclickCountEl.className += " doubleclick--alert";
       clickstatsRightEl.classList += " clickstats--alert";
+      restartAlertTimer();
     }
   }
   consoleBox.scrollTop = consoleBox.scrollHeight;

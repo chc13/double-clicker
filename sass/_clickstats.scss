@@ -38,5 +38,19 @@
 
   &--alert {
     background-color: var(--ALERT-COLOR);
+    /* animation-name: alert-anim;
+    animation-duration: 4s; */
   }
 }
+
+/* @keyframes alert-anim {
+  0% {
+    background-color: var(--CONTAINER-COLOR);
+  }
+  10% {
+    background-color: var(--ALERT-COLOR);
+  }
+  100% {
+    background-color: var(--ALERT-COLOR);
+  }
+} */
