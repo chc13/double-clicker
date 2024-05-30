@@ -36,6 +36,22 @@
               Click on the page to check if your mouse is double clicking
             </div>
           </div>
+
+          <!--  toggle button here -->
+          <fieldset class="toggle" aria-label="theme toggle" role="radiogroup">
+            <!-- <legend>Dark Mode</legend> -->
+            <label for="dark"
+              >Dark Mode <span class="visually-hidden">On</span></label
+            >
+            <div class="toggle__wrapper">
+              <input type="radio" name="theme" id="dark" />
+              <input type="radio" name="theme" id="light" checked />
+              <span aria-hidden="true" class="toggle__background"></span>
+              <span aria-hidden="true" class="toggle__button"></span>
+            </div>
+
+            <label for="light" class="visually-hidden">Dark Mode Off</label>
+          </fieldset>
         </header>
       </section>
 
