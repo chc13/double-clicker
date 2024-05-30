@@ -16,6 +16,8 @@
   --TEAL: #488286;
   --LIGHT-BLUE: #b7d5d4;
   --DARK-BG: #1f2324;
+  --PALE-DOGWOOD: #eccfc3;
+  --ENGLISH-VIOLET: #4c3b4d;
 
   --BLACK: #000;
   --WHITE: #fff;
@@ -43,6 +45,16 @@
 
 [color-scheme="dark"] {
   --BG-COLOR: var(--DARK-BG);
+  --FONT-COLOR: var(--LIGHT-BLUE);
+  --FONT-COLOR2: var(--TEAL);
+  --CONTAINER-COLOR: var(--ONYX);
+  --CONTAINER-BORDER-COLOR: var(--TEAL);
+  --HYPERLINK-COLOR: var(--SLATE-GRAY);
+  --BTN-COLOR: var(--SLATE-GRAY);
+  --BTN-BORDER-COLOR: var(--TEAL);
+  --BTN-HOVER-COLOR: hsl(192, 8%, 41%);
+  --BTN-ACTIVE-COLOR: var(--DARK-SLATE-GRAY);
+  --ALERT-COLOR: var(--ENGLISH-VIOLET);
 }
 
 .kiwi-maru-regular {

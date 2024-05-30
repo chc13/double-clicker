@@ -34,6 +34,8 @@ const clickstatsRightEl = document.getElementById("clickstatsRight");
 
 consoleBox.textContent = "";
 
+/* document.documentElement.setAttribute("color-scheme", "dark"); */
+
 //resets console box
 resetBtn.addEventListener("click", function () {
   consoleBox.textContent = "";
@@ -133,15 +135,12 @@ let doubleClickWindow = 80; //defines the time window for two consecutive clicks
 clickWindowTxt.textContent = doubleClickWindow;
 
 let timeIntervalAlert;
-/* let msCountAlert = 0;
-let lastTimeAlert = 0; */
 
 function restartAlertTimer() {
   clearInterval(timeIntervalAlert);
-  /* msCountAlert = 0; */
 
   timeIntervalAlert = setInterval(() => {
-    console.log("reset colors now");
+    //reset colors after 2000ms
     doubleclickCountEl.className = "doubleclick";
     clickstatsLeftEl.classList = "clickstats clickstats--left";
     clickstatsRightEl.classList = "clickstats clickstats--right";
