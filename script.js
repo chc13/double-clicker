@@ -22,11 +22,13 @@ const doubleclickCountEl = document.getElementById("dblCount");
 const clickstatsLeftEl = document.getElementById("clickstatsLeft");
 const clickstatsRightEl = document.getElementById("clickstatsRight");
 
+//dark mode toggle stuff
 const cssroot = document.querySelector(":root");
 let localColors = JSON.parse(localStorage.getItem("localColors"));
 const radioDark = document.getElementById("dark");
 const radioLight = document.getElementById("light");
 
+//event listeners to change color scheme on the toggle, will save settings in localstorage
 radioLight.addEventListener("click", function () {
   document.documentElement.setAttribute("color-scheme", "light");
   localStorage.setItem("localColors", JSON.stringify("light"));
@@ -39,15 +41,59 @@ radioDark.addEventListener("click", function () {
   localColors = "dark";
 });
 
-/* window.addEventListener("load", function () {
-  // code here
-  console.log(doubleclickCountEl);
-  if (doubleclickCountEl) {
-    console.log("added new class");
-    doubleclickCountEl.className += " doubleclick--alert";
-    console.log(doubleclickCountEl.className);
+//this determines whether or not the color scheme will switch on system preference change
+window
+  .matchMedia("(prefers-color-scheme: dark)")
+  .addEventListener("change", (event) => {
+    if (localColors) {
+      console.log("local storage detected, no change will occur");
+    } else {
+      if (event.matches) {
+        console.log("switched to dark mode on system prefs detected");
+        document.documentElement.setAttribute("color-scheme", "dark");
+        radioDark.checked = true;
+      } else {
+        console.log("switched to light mode on system prefs detected");
+        document.documentElement.setAttribute("color-scheme", "light");
+        radioLight.checked = true;
+      }
+    }
+  });
+
+//this will set the page's color scheme on load
+function initLoadColorScheme() {
+  let radioCheck = "dark";
+
+  if (localColors) {
+    document.documentElement.setAttribute("color-scheme", localColors);
+    radioCheck = localColors;
+  } else {
+    radioCheck = getCSSVariable("--COLOR-MODE");
+    document.documentElement.setAttribute("color-scheme", radioCheck);
   }
-}); */
+
+  //precheck the correct toggle for the light toggle
+  if (radioCheck == "light") {
+    radioLight.checked = true;
+  } else {
+    radioDark.checked = true;
+  }
+}
+
+//gets the css variable in root's property, using this to grab --COLOR-MODE from css root
+function getCSSVariable(cssvar) {
+  let rs = getComputedStyle(cssroot);
+  console.log("The value of " + cssvar + " is: " + rs.getPropertyValue(cssvar));
+
+  return rs.getPropertyValue(cssvar);
+}
+
+//code to make sure page is fully loaded before doing anything
+window.addEventListener("load", function () {
+  console.log("page is fully loaded, now apply functions");
+  // code here
+  initLoadColorScheme();
+});
 
 consoleBox.textContent = "";
 
