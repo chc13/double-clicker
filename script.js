@@ -22,6 +22,23 @@ const doubleclickCountEl = document.getElementById("dblCount");
 const clickstatsLeftEl = document.getElementById("clickstatsLeft");
 const clickstatsRightEl = document.getElementById("clickstatsRight");
 
+const cssroot = document.querySelector(":root");
+let localColors = JSON.parse(localStorage.getItem("localColors"));
+const radioDark = document.getElementById("dark");
+const radioLight = document.getElementById("light");
+
+radioLight.addEventListener("click", function () {
+  document.documentElement.setAttribute("color-scheme", "light");
+  localStorage.setItem("localColors", JSON.stringify("light"));
+  localColors = "light";
+});
+
+radioDark.addEventListener("click", function () {
+  document.documentElement.setAttribute("color-scheme", "dark");
+  localStorage.setItem("localColors", JSON.stringify("dark"));
+  localColors = "dark";
+});
+
 /* window.addEventListener("load", function () {
   // code here
   console.log(doubleclickCountEl);
