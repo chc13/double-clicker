@@ -1,3 +1,5 @@
+@use "base" as *;
+
 .toggle {
   display: grid;
   grid-template-columns: 1fr 3rem;
@@ -58,5 +60,15 @@
 
   #light:checked ~ .toggle__button {
     left: calc(100% - 21px);
+  }
+
+  //hide the toggle if screen width is less than 800px
+  @include breakpoint-down(799px) {
+    position: absolute;
+    left: -10000px;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
   }
 }
