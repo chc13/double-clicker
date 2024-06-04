@@ -1,5 +1,5 @@
 //html elements
-const numClicksText = document.getElementById("numClicks");
+const numLeftClicksText = document.getElementById("numClicks");
 const numRightClicksText = document.getElementById("numRightClicks");
 const msPassedText = document.getElementById("msPassed");
 const numDoubleClicksText = document.getElementById("numDoubleClicks");
@@ -91,13 +91,11 @@ function getCSSVariable(cssvar) {
 //code to make sure page is fully loaded before doing anything
 window.addEventListener("load", function () {
   console.log("page is fully loaded, now apply functions");
-  // code here
+  // startup code stuff here
   initLoadColorScheme();
+  consoleBox.textContent = "";
+  inputEl.value = 80;
 });
-
-consoleBox.textContent = "";
-
-/* document.documentElement.setAttribute("color-scheme", "dark"); */
 
 //resets console box
 resetBtn.addEventListener("click", function () {
@@ -105,42 +103,37 @@ resetBtn.addEventListener("click", function () {
 });
 
 //left clicks
-let numClicks = 0;
-let timeInterval;
-let msCount = 0;
+let numLeftClicks = 0;
+let timeIntervalLeft;
+let msCountLeft = 0;
 let leftDoubleClicks = 0;
-document.addEventListener("click", handleMouseClick);
-let lastTime = 0; //stores the last date in ms for a click
+let lastTimeLeft = 0; //stores the last date in ms for a click
 
-function handleMouseClick(event) {
-  /* console.log(numClicks); */
-  if (numClicks > 0) {
-    msCount = Date.now() - lastTime; //update msCount here so that the second click isn't incorrectly reported
+document.addEventListener("click", function () {
+  if (numLeftClicks > 0) {
+    msCountLeft = Date.now() - lastTimeLeft; //update msCountLeft here so that the second click isn't incorrectly reported
     checkDoubleClick(0);
   }
-  numClicks++;
-  updateNumClicksText();
+  numLeftClicks++;
 
-  restartTimer();
-  lastTime = Date.now();
-}
+  numLeftClicksText.textContent = numLeftClicks.toString().padStart(4, "0"); //updates text for number of left clicks
 
-function restartTimer() {
-  clearInterval(timeInterval);
-  msCount = 0;
-  msPassedText.textContent = msCount.toString().padStart(4, "0");
+  restartTimerLeft();
+  lastTimeLeft = Date.now();
+});
+
+//restarts the interval timer for left mouse clicks
+function restartTimerLeft() {
+  clearInterval(timeIntervalLeft);
+  msCountLeft = 0;
+  msPassedText.textContent = msCountLeft.toString().padStart(4, "0");
 
   //set time interval to 1 ms; this is just used to update the timer display
-  timeInterval = setInterval(() => {
-    //msCount++;
-    let msCountTemp = Date.now() - lastTime;
+  timeIntervalLeft = setInterval(() => {
+    let msCountTemp = Date.now() - lastTimeLeft;
     msPassedText.textContent = msCountTemp.toString().padStart(4, "0");
   }, 1);
-  msCount = Date.now() - lastTime;
-}
-
-function updateNumClicksText() {
-  numClicksText.textContent = numClicks.toString().padStart(4, "0");
+  msCountLeft = Date.now() - lastTimeLeft;
 }
 
 //right clicks
@@ -148,23 +141,13 @@ let numRightClicks = 0;
 let timeIntervalRight;
 let msCountRight = 0;
 let rightDoubleClicks = 0;
-/* window.oncontextmenu = (e) => {
-  e.preventDefault();
-  console.log("right clicked");
-};
- */
 
-/* document.addEventListener("contextmenu", (event) => {
-  event.preventDefault();
-  console.log("right click detected!");
-}); */
-
-document.addEventListener("contextmenu", handleRightMouseClicks);
 let lastTimeRight = 0;
 
-function handleRightMouseClicks(event) {
+document.addEventListener("contextmenu", function (event) {
+  //prevents context menu from showing up if context menu checkbox is checked
   if (contextCheckbox.checked) {
-    event.preventDefault(); //prevents context menu from showing up
+    event.preventDefault();
   }
 
   if (numRightClicks > 0) {
@@ -176,7 +159,7 @@ function handleRightMouseClicks(event) {
 
   restartTimerRight();
   lastTimeRight = Date.now();
-}
+});
 
 function restartTimerRight() {
   clearInterval(timeIntervalRight);
@@ -185,7 +168,6 @@ function restartTimerRight() {
 
   //set time interval to 1 ms
   timeIntervalRight = setInterval(() => {
-    //msCountRight++;
     let msCountTemp = Date.now() - lastTimeRight;
     msPassedRightText.textContent = msCountTemp.toString().padStart(4, "0");
   }, 1);
@@ -199,6 +181,7 @@ clickWindowTxt.textContent = doubleClickWindow;
 
 let timeIntervalAlert;
 
+//starts a 2000ms timer that resets the click stats elements classes
 function restartAlertTimer() {
   clearInterval(timeIntervalAlert);
 
@@ -214,10 +197,10 @@ function restartAlertTimer() {
 //checks for double clicks, mousebutton param determines whether it checks for left(0) or right(1) clicks
 function checkDoubleClick(mousebutton) {
   if (mousebutton == 0) {
-    //consoleBox.textContent += "Left Click: " + msCount + " ms\n";
-    newConsoleMsg("Left Click: " + msCount + " ms");
+    //consoleBox.textContent += "Left Click: " + msCountLeft + " ms\n";
+    newConsoleMsg("Left Click: " + msCountLeft + " ms");
 
-    if (msCount < doubleClickWindow) {
+    if (msCountLeft < doubleClickWindow) {
       numDoubleClicks++;
       numDoubleClicksText.textContent = numDoubleClicks
         .toString()
@@ -279,6 +262,7 @@ function checkDoubleClick(mousebutton) {
   consoleBox.scrollTop = consoleBox.scrollHeight;
 }
 
+//changes double click window on button click
 inputBtn.addEventListener("click", function () {
   if (inputEl.value != "") {
     doubleClickWindow = inputEl.value;
@@ -287,6 +271,7 @@ inputBtn.addEventListener("click", function () {
   }
 });
 
+//displays messages in the console box
 function newConsoleMsg(msg) {
   consoleBox.textContent += msg + "\n";
   consoleBox.scrollTop = consoleBox.scrollHeight;
