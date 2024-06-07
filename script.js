@@ -177,7 +177,7 @@ function restartTimerRight() {
 
 let numDoubleClicks = 0; //the total number of double clicks between right and left clicks
 let doubleClickWindow = 80; //defines the time window for two consecutive clicks to be considered a double click in ms
-clickWindowTxt.textContent = doubleClickWindow;
+clickWindowTxt.textContent = doubleClickWindow + "ms";
 
 let timeIntervalAlert;
 
@@ -266,7 +266,7 @@ function checkDoubleClick(mousebutton) {
 inputBtn.addEventListener("click", function () {
   if (inputEl.value != "") {
     doubleClickWindow = inputEl.value;
-    clickWindowTxt.textContent = doubleClickWindow;
+    clickWindowTxt.textContent = doubleClickWindow + "ms";
     newConsoleMsg("Time Window changed to " + inputEl.value + " ms");
   }
 });
